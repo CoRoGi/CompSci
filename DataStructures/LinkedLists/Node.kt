@@ -1,4 +1,4 @@
-package LinkedLists
+package DSA.LinkedLists
 
 data class Node<T: Any>(
   var value: T,

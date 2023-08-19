@@ -1,6 +1,6 @@
-package LinkedLists
+package DSA.LinkedLists
 
-import LinkedLists.Node
+import DSA.LinkedLists.Node
 
 //Doubly Linked List, implemented without a size variable
 class DoublyLinkedList<T: Any> {

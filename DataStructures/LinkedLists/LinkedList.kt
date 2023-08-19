@@ -1,6 +1,6 @@
-package LinkedLists
+package DSA.LinkedLists
 
-import LinkedLists.Node
+import DSA.LinkedLists.Node
 
 class LinkedList<T: Any>() {
 

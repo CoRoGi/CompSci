@@ -1,6 +1,6 @@
-package Stacks
+package DSA.Stacks
 
-import Stacks.StackInterface
+import DSA.Stacks.StackInterface
 
 class Stack<T: Any>: StackInterface<T> {
 
