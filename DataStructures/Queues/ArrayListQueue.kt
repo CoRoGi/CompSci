@@ -1,6 +1,6 @@
-package DSA.Queues
+package Queues
 
-import DSA.Queues.Queue
+import Queues.Queue
 
 class ArrayListQueue<T>: Queue<T> {
 

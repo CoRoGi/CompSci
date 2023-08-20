@@ -1,8 +1,8 @@
-package DSA.LinkedLists
+package LinkedLists
 
-import DSA.LinkedLists.Node
+import LinkedLists.Node
 
-class LinkedList<T: Any>() {
+class LinkedList<T>() {
 
   var head: Node<T>? = null
   var tail: Node<T>? = null

@@ -1,4 +1,4 @@
-package DSA.Stacks
+package Stacks
 
 interface StackInterface<T: Any> {
 

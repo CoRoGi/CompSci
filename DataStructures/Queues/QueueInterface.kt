@@ -1,4 +1,4 @@
-package DSA.Queues
+package Queues
 
 interface Queue<T> {
 

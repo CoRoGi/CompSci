@@ -1,7 +1,7 @@
-package DSA.Queues
+package Queues
 
-import DSA.Queues.Queue
-import DSA.LinkedLists.LinkedList
+import Queues.Queue
+import LinkedLists.LinkedList
 
 class LinkedListQueue<T>: Queue<T> {
 
@@ -9,7 +9,7 @@ class LinkedListQueue<T>: Queue<T> {
 
   private var size = 0
 
-  override val count()
+  override val count
     get() = size
 
   override fun enqueue(element: T): Boolean {
@@ -18,14 +18,14 @@ class LinkedListQueue<T>: Queue<T> {
   }  
 
   override fun dequeue(): T? {
-    return storage.removeLast
+    return storage.removeLast()
   }
 
   override fun peek(): T? {
-    return if (isEmpty()) {
+    return if (isEmpty) {
       null
     } else {
-      storage.head.value
+      storage.head!!.value
     }
   }
 }
