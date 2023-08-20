@@ -3,13 +3,13 @@ package LinkedLists
 import LinkedLists.Node
 
 //Doubly Linked List, implemented without a size variable
-class DoublyLinkedList<T: Any> {
+class DoublyLinkedList<T> {
 
   private var head: Node<T>? = null
   private var tail: Node<T>? = null
 
   //Used in LinkedListQueues
-  var first: Node<T>
+  var first: Node<T>? = null
     get() = head
 
   fun isEmpty(): Boolean {
@@ -20,7 +20,7 @@ class DoublyLinkedList<T: Any> {
     if (isEmpty()) {
       return "Empty list"
     }
-    return head.toString()
+    return head?.toString() ?: ""
   }
 
   //Head end insertion
@@ -33,7 +33,7 @@ class DoublyLinkedList<T: Any> {
         return
     }
     newNode.next = head
-    head.prev = newNode
+    head?.prev = newNode
     head = newNode
   }
 
@@ -41,7 +41,7 @@ class DoublyLinkedList<T: Any> {
   fun append(value: T) {
     //Initialize a Node which holds the given value, points its prev to current
     //tail
-    val newNode = Node(value = value, previous = tail)
+    val newNode = Node(value = value, prev = tail)
     //If the list is empty this will be the only node in the list, and it will
     //point to itself as its prev
     if (isEmpty()) {
@@ -77,15 +77,15 @@ class DoublyLinkedList<T: Any> {
     var currentIndex = 0
     var prev = head
     var current = head
-    var next = current.next
+    var next = current!!.next
 
     //Fast Forward through the list until either current is the tail or the
     //index of current has reached the given index
     while (next != null && currentIndex < index) {
       prev = current
-      current = current.next
-      next = current.next
-      index++
+      current = current!!.next
+      next = current!!.next
+      currentIndex++
     }
 
     //After the while loop has finished, we know either that we are at the end
@@ -100,15 +100,15 @@ class DoublyLinkedList<T: Any> {
         //tail
         //Update previous and next of newNode such that its outgoing pointers
         //position it in between current and whatever is before it
-        newNode.previous = current.previous
+        newNode.prev = current!!.prev
         newNode.next = current
         //Now that newNode has had its pointers updated, its neighbors need to
         //now change one pointer each so that they are connected to newNode
         //instead of each other. prev.next currently points to current, and
         //current.previous currently points to prev. We will update so that each
         //of those two outgoing pointers now go to newNode
-        prev.next = newNode
-        current.previous = newNode
+        prev!!.next = newNode
+        current.prev = newNode
       }
   }
 
@@ -135,7 +135,7 @@ class DoublyLinkedList<T: Any> {
   fun remove(node: Node<T>?): T? {
 
     //Initialize variables which contain given node's 'prev' and 'next'
-    val prev = node?.previous
+    val prev = node?.prev
     val next = node?.next
 
     //If 'prev' is not null, simply point its next to the given node's next
@@ -149,7 +149,7 @@ class DoublyLinkedList<T: Any> {
 
     //Update the 'next' of the previous node to point to the 'prev' of the given
     //node
-    next?.previous = prev
+    next?.prev = prev
 
     //If next is null, the given node is the tail. In such a case, update the
     //tail variable to point to the tail's 'prev'
@@ -159,7 +159,7 @@ class DoublyLinkedList<T: Any> {
 
     //Remove all outgoing pointers from the given node, freeing it for the
     //garbage collector
-    node?.previous = null
+    node?.prev = null
     node?.next = null
 
     //The garbage collector will clean the given node up after the function
