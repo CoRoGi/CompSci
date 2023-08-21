@@ -1,6 +1,6 @@
 package Stacks
 
-interface StackInterface<T: Any> {
+interface StackInterface<T> {
 
     val storage: ArrayList<T>
 
