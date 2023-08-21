@@ -2,7 +2,7 @@ package Stacks
 
 import Stacks.StackInterface
 
-class Stack<T: Any>: StackInterface<T> {
+class Stack<T>: StackInterface<T> {
 
     override val storage = ArrayList<T>()
 
