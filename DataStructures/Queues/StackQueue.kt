@@ -30,7 +30,7 @@ class StackQueue<T>: Queue<T> {
   }
 
   override fun dequeue(): T? {
-    if (rightStack.size > 0) {
+    if (!(leftStack.size > 0)) {
       transferElements()
     }
     return leftStack.pop()

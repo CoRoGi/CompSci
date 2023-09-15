@@ -18,7 +18,7 @@ class LinkedListQueue<T>: Queue<T> {
   }  
 
   override fun dequeue(): T? {
-    return storage.removeLast()
+    return storage.pop()
   }
 
   override fun peek(): T? {
