@@ -7,7 +7,7 @@ typealias Visitor<T> = (Node<T>) -> Unit
 class Node<T>(val value: T, var parent: Node<T>? = null) {
     private val children = mutableListOf<Node<T>>()
 
-    private fun add(child: Node<T>) {
+    fun add(child: Node<T>) {
         children.add(child)
     }
 
@@ -27,7 +27,7 @@ class Node<T>(val value: T, var parent: Node<T>? = null) {
         children.forEach {
             queue.enqueue(it)
         }
-    
+
         var child = queue.dequeue()
 
         while (child != null) {

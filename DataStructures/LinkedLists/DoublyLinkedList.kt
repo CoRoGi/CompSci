@@ -7,6 +7,7 @@ class DoublyLinkedList<T> {
 
   private var head: Node<T>? = null
   private var tail: Node<T>? = null
+  private var testLinkedList = LinkedList<T>()
 
   //Used in LinkedListQueues
   var first: Node<T>? = null
